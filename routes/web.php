@@ -30,7 +30,15 @@ Route::middleware([
 route::get('/home', [dashboardController::class, 'redirect']);
 route::get('/', [dashboardController::class, 'index']);
 route::get('/allproducts', [dashboardController::class, 'product']);
-route::get('/products', [AdminController::class, 'product']);
+// route::get('/allproducts/{id}', [dashboardController::class, 'singleproduct']);
+route::get('/addproducts', [AdminController::class, 'addproducts']);
 route::post('/uploadproduct', [AdminController::class, 'uploadproduct']);
-route::post('/showproduct', [AdminController::class, 'showproduct']);
-route::post('/deleteproduct', [AdminController::class, 'deleteproduct']);
+route::get('/showproducts', [AdminController::class, 'showproducts']);
+route::get('/deleteproducts/{id}', [AdminController::class, 'deleteproducts']);
+route::get('/updateproduct/{id}', [AdminController::class, 'updateproduct']);
+route::post('/editproduct/{id}', [AdminController::class, 'editproduct']);
+
+route::get('/search', [dashboardController::class, 'searchproduct']);
+route::get('/singleproduct/{id}', [dashboardController::class, 'singleproduct']);
+route::post('/addcart/{id}', [dashboardController::class, 'addcart']);
+route::get('/cart', [dashboardController::class, 'showcart']);

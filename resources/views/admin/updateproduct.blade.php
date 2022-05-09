@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<base href="/public">
+
 @include('admin.head')
 
 <body>
@@ -23,18 +25,22 @@
                                     <!-- <div class="card-header">
                                         <h5>Basic Componant</h5>
                                     </div> -->
-                                    @if(session()->has('message'))
-                                    <div class="alert alert-success">
-                                        <button type="button" class="close" data-dismiss="alert">x</button>
-                                        {{session()->get('message')}}
-                                    </div>
-                                    @endif
+
 
                                     <div class="card-body">
 
-                                        <h5>Ürün Ekle</h5>
+                                        <h5>Ürün Güncelle</h5>
                                         <hr>
-                                        <form action="{{url('uploadproduct')}}" method="post" enctype="multipart/form-data">
+
+                                        @if(session()->has('message'))
+                                        <div class="alert alert-success">
+                                            <button type="button" class="close" data-dismiss="alert">x</button>
+                                            {{session()->get('message')}}
+                                        </div>
+                                        @endif
+
+
+                                        <form action="{{url('editproduct',$data->id)}}" method="post" enctype="multipart/form-data">
 
                                             @csrf
                                             <div class="row">
@@ -43,44 +49,38 @@
 
                                                     <div class="form-group">
                                                         <label>Adı</label>
-                                                        <input type="text" class="form-control" name="title" placeholder="Ad">
+                                                        <input type="text" class="form-control" name="title" value="{{$data->title}}">
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label>Açıklama</label>
-                                                        <input type="text" class="form-control" name="des" placeholder="Açıklama">
+                                                        <input type="text" class="form-control" name="des" value="{{$data->description}}">
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label>Fiyat</label>
-                                                        <input type="text" class="form-control" name="price" placeholder="Fiyat">
+                                                        <input type="text" class="form-control" name="price" value="{{$data->price}}">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Adet</label>
-                                                        <input type="text" class="form-control" name="quantity" placeholder="Adet">
+                                                        <input type="text" class="form-control" name="quantity" value="{{$data->quantity}}">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Eski Resim</label>
+                                                        <img src="/productimage/{{$data->image}}" width="100px" alt="">
                                                     </div>
 
 
 
                                                     <div class="form-group">
-                                                        <label>Resim</label>
+                                                        <label>Yeni Resim</label>
                                                         <input type="file" class="form-control form-control-sm" name="img" placeholder="Resim" accept="image/*">
                                                     </div>
 
                                                     <div class="form-group">
                                                         <button type="submit" class="btn btn-primary">Submit</button>
                                                     </div>
-
-
-
-
-
-
-
-
-
-
-
 
                                                 </div>
 

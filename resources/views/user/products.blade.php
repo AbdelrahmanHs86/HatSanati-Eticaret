@@ -30,8 +30,9 @@
                 <div class="col-md-4">
                     <div class="product_sidebar">
                         <div class="single_sedebar">
-                            <form action="#">
-                                <input type="text" name="#" placeholder="Search keyword">
+                            <form action="{{url('search')}}" method="get">
+                                @csrf
+                                <input type="search" name="search" placeholder="Search keyword">
                                 <i class="ti-search"></i>
                             </form>
                         </div>
@@ -65,8 +66,8 @@
                             @foreach($data as $product)
                             <div class="col-lg-6 col-sm-6">
                                 <div class="single_product_item">
-                                    <img src="/productimage/{{$product->image}}" alt="#" class="img-fluid">
-                                    <h3> <a href="single-product.html">{{$product->title}}</a> </h3>
+                                    <img src="/productimage/{{$product->image}}" width="300px" alt="#" class="img-fluid mx-auto d-block">
+                                    <h3> <a href="{{url('singleproduct',$product->id)}}">{{$product->title}}</a> </h3>
                                     <p>From ${{$product->price}}</p>
                                 </div>
                             </div>
@@ -74,9 +75,11 @@
                             @endforeach
                         </div>
 
+                        @if(method_exists($data,'links'))
                         <div class="d-flex justify-content-center">
                             {!! $data->links() !!}
                         </div>
+                        @endif
                         <!-- <div class="load_more_btn text-center">
                             <a href="#" class="btn_3">Load More</a>
                         </div> -->

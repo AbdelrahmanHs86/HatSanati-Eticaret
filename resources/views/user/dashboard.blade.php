@@ -30,7 +30,7 @@
     <!-- banner part start-->
 
 
-    @include('user.feacher')
+    @include('user.feature')
 
     <!-- trending item start-->
     <!-- trending item end-->
