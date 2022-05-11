@@ -16,11 +16,10 @@ Add User, Login User, Update User Information (change email address, reset passw
 - Upload/update/delete information, quantity, price, Photo of the product.
 - Can Offer/Remove Products for Sale, Products will be sold by checking product stock information
 - Can view, update, password, reset his own information in the system
-- Can manages users: view/update/delete/deactivate Account
 - Can Track Orders: View/Confirm Order
 
 ### User(user): 
 To Login or Register to the system
 - Can view and update his own information in the system, reset Password, view Products, view details of products
 - Can add the products to his cart, delete them from the cart, see the total amount and place an order.
-- Can deactivate your membership.
+
